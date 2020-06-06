@@ -1,0 +1,309 @@
+<html lang="EN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Welcome - Global eHealth Declaration From</title>
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+
+  <link rel='stylesheet' href='styles/default.min.css' />
+  <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" />
+  <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+  <script>
+    function doit(type, fn, dl) {
+      var elt = document.getElementById('data-table');
+      var wb = XLSX.utils.table_to_book(elt, { sheet: "Sheet JS" });
+      return dl ?
+        XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }) :
+        XLSX.writeFile(wb, fn || ('eHealth Data by LabMoneta.' + (type || 'xlsx')));
+    }
+  </script>
+</head>
+
+<body onload="document.getElementById('defaultOpen').click();">
+  <%- include header %>
+
+  <div class="jumbotron" style="padding: 0 !important;">
+    <div class="row">
+      <div class="col-xs-12 col-md-12 col-lg-12 col-xs-offset-0 col-sm-offset-0 toppad">
+
+        <div class="panel panel-info" style="margin: 0 !important;">
+          <div class="panel-heading">
+            <h3 class="panel-title">Welcome <%=user.first_name%>,</h3>
+          </div>
+          <div class="panel-body">
+
+            <div class="tab">
+              <button class="tablinks active" onclick="showQuestion(event, 'question1')" id="defaultOpen">Question 1</button>
+              <button class="tablinks" onclick="showQuestion(event, 'question2')">Question 2</button>
+              <button class="tablinks" onclick="showQuestion(event, 'question3')">Question 3</button>
+              <button class="tablinks" onclick="showQuestion(event, 'question4')">Question 4</button>
+              <button class="tablinks" onclick="showQuestion(event, 'question5')">Question 5</button>
+            </div>
+
+           
+              <div id="question1" class="tabcontent">
+                <form class="form-horizontal" role="form" method="put" action="/question">
+                <table class="table table-primary">
+                  <tbody>
+                    <tr>
+                      <th class="col-md-2">Enabled:</th>
+                      <td><input type="checkbox" id="check1" name="check1" disabled="true"></td>
+                      <th class="col-md-2">Question Type:</th>
+                      <td class="editQuestionFS"><%=data[0].question_type%></td>
+                    </tr>
+                  </tbody>
+                  <tbody>
+                </table>
+                <table class="table table-primary">
+                  <tr>
+                    <th class="col-md-2">Question ID:</th>
+                    <td class="editQuestionFS"><%=data[0].question_id%></td>
+                  </tr>
+                  <tr>
+                    <th class="col-md-2">Question Title:</th>
+                    <td><input type="text" id="title1" name="title1" class="form-control" disabled="true"
+                        value="<%=data[0].question_title%>" required></td>
+                  </tr>
+                  <tr>
+                    <th class="col-md-2">Question:</th>
+                    <td><textarea id="ques1" name="ques1" class="form-control"
+                        disabled="true" required><%=data[0].question_description%></textarea></td>
+                  </tr>
+                  <tr>
+                    <th class="col-md-2">Options:</th>
+                    <td class="editQuestionFS"><%=data[0].question_options%></td>
+                  </tr>
+                  </tbody>
+                </table>
+
+                <div class="justify-content-center" style="text-align-last: center;">
+                  <button id="btn-cancel1" onclick="disable(1)" type="button" disabled="true" class="btn cancel_btn">Cancel</button>
+                  <button id="btn-edit1"  onclick="enable(1)" type="button"  class="btn edit_btn">Edit</button>
+                  <button id="btn-submit1" onclick="update(1)" type="submit" class="btn update_btn" disabled="true" >Update</button>
+                </div>
+                </form>
+              </div>
+
+              <div id="question2" class="tabcontent">
+                <form class="form-horizontal" role="form" method="put" action="/question">
+                <table class="table table-primary">
+                  <tbody>
+                    <tr>
+                      <th class="col-md-2">Enabled:</th>
+                      <td><input type="checkbox" id="check2" name="check2" disabled="true"></td>
+                      <th class="col-md-2">Question Type:</th>
+                      <td class="editQuestionFS"><%=data[1].question_type%></td>
+                    </tr>
+                  </tbody>
+                  <tbody>
+                </table>
+                <table class="table table-primary">
+                  <tr>
+                    <th class="col-md-2">Question ID:</th>
+                    <td class="editQuestionFS"><%=data[1].question_id%></td>
+                  </tr>
+                  <tr>
+                    <th class="col-md-2">Question Title:</th>
+                    <td><input type="text" id="title2" name="title2" class="form-control"
+                        value="<%=data[1].question_title%>" disabled="true" required  ></td>
+                  </tr>
+                  <tr>
+                    <th class="col-md-2">Question:</th>
+                    <td><textarea id="ques2" name="ques2"
+                        class="form-control" disabled="true" required  ><%=data[1].question_description%></textarea></td>
+                  </tr>
+                  <tr>
+                    <th class="col-md-2">Options:</th>
+                    <td class="editQuestionFS"><%=data[1].question_options%></td>
+                  </tr>
+                  </tbody>
+                </table>
+
+                <div class="justify-content-center" style="text-align-last: center;">
+                  <button id="btn-cancel2" onclick="disable(2)" type="button" disabled="true" class="btn cancel_btn">Cancel</button>
+                  <button id="btn-edit2"  onclick="enable(2)" type="button" class="btn edit_btn">Edit</button>
+                  <button id="btn-submit2" onclick="update(2)" type="submit" class="btn update_btn" disabled="true" >Update</button>
+                </div>
+              </form>
+              </div>
+
+              <div id="question3" class="tabcontent">
+                <form class="form-horizontal" role="form" method="put" action="/question">
+                <table class="table table-primary">
+                  <tbody>
+                    <tr>
+                      <th class="col-md-2">Enabled:</th>
+                      <td><input type="checkbox" id="check3" name="check3"  disabled="true" ></td>
+                      <th class="col-md-2">Question Type:</th>
+                      <td class="editQuestionFS"><%=data[2].question_type%></td>
+                    </tr>
+                  </tbody>
+                  <tbody>
+                </table>
+                <table class="table table-primary">
+                  <tr>
+                    <th class="col-md-2">Question ID:</th>
+                    <td class="editQuestionFS"><%=data[2].question_id%></td>
+                  </tr>
+                  <tr>
+                    <th class="col-md-2">Question Title:</th>
+                    <td><input type="text" id="title3" name="title3" class="form-control"
+                        value="<%=data[2].question_title%>" required disabled="true" ></td>
+                  </tr>
+                  <tr>
+                    <th class="col-md-2">Question:</th>
+                    <td><textarea id="ques3" name="ques3"
+                        class="form-control" required disabled="true" ><%=data[2].question_description%></textarea></td>
+                  </tr>
+                  <tr>
+                    <th class="col-md-2">Options:</th>
+                    <td class="editQuestionFS"><%=data[2].question_options%></td>
+                  </tr>
+                  </tbody>
+                </table>
+
+                <div class="justify-content-center" style="text-align-last: center;">
+                  <button id="btn-cancel3" onclick="disable(3)" type="button" disabled="true" class="btn cancel_btn">Cancel</button>
+                  <button id="btn-edit3"  onclick="enable(3)" type="button" class="btn edit_btn">Edit</button>
+                  <button id="btn-submit3" onclick="update(3)" type="submit" class="btn update_btn" disabled="true" >Update</button>
+                </div>
+              </form>
+              </div>
+
+              <div id="question4" class="tabcontent">
+                <form class="form-horizontal" role="form" method="put" action="/question">
+                <table class="table table-primary">
+                  <tbody>
+                    <tr>
+                      <th class="col-md-2">Enabled:</th>
+                      <td><input type="checkbox" id="check4" name="check4"  disabled="true" ></td>
+                      <th class="col-md-2">Question Type:</th>
+                      <td class="editQuestionFS"><%=data[3].question_type%></td>
+                    </tr>
+                  </tbody>
+                  <tbody>
+                </table>
+                <table class="table table-primary">
+                  <tr>
+                    <th class="col-md-2">Question ID:</th>
+                    <td class="editQuestionFS"><%=data[3].question_id%></td>
+                  </tr>
+                  <tr>
+                    <th class="col-md-2">Question Title:</th>
+                    <td><input type="text" id="title4" name="title4" class="form-control"
+                        value="<%=data[4].question_title%>" required disabled="true" ></td>
+                  </tr>
+                  <tr>
+                    <th class="col-md-2">Question:</th>
+                    <td><textarea id="ques4" name="ques4"
+                        class="form-control" required disabled="true" ><%=data[3].question_description%></textarea></td>
+                  </tr>
+                  <tr>
+                    <th class="col-md-2">Options:</th>
+                    <td class="editQuestionFS"><%=data[3].question_options%></td>
+                  </tr>
+                  </tbody>
+                </table>
+
+                <div class="justify-content-center" style="text-align-last: center;">
+                  <button id="btn-cancel4" onclick="disable(4)" type="button" disabled="true" class="btn cancel_btn">Cancel</button>
+                  <button id="btn-edit4"  onclick="enable(4)" type="button"   class="btn edit_btn">Edit</button>
+                  <button id="btn-submit4" onclick="update(4)" type="submit" class="btn update_btn" disabled="true" >Update</button>
+                </div>
+              </form>
+              </div>
+
+              <div id="question5" class="tabcontent">
+                <form class="form-horizontal" role="form" method="put" action="/question">
+                <table class="table table-primary">
+                  <tbody>
+                    <tr>
+                      <th class="col-md-2">Enabled:</th>
+                      <td><input type="checkbox" id="check5" name="check5"  disabled="true" ></td>
+                      <th class="col-md-2">Question Type:</th>
+                      <td class="editQuestionFS"><%=data[0].question_type%></td>
+                    </tr>
+                  </tbody>
+                  <tbody>
+                </table>
+                <table class="table table-primary">
+                  <tr>
+                    <th class="col-md-2">Question ID:</th>
+                    <td class="editQuestionFS"><%=data[4].question_id%></td>
+                  </tr>
+                  <tr>
+                    <th class="col-md-2">Question Title:</th>
+                    <td><input type="text" id="title5" name="title5" class="form-control"
+                        value="<%=data[4].question_title%>" required disabled="true" ></td>
+                  </tr>
+                  <tr>
+                    <th class="col-md-2">Question:</th>
+                    <td><textarea id="ques5" name="ques5"
+                        class="form-control" required disabled="true" ><%=data[4].question_description%></textarea></td>
+                  </tr>
+                  <tr>
+                    <th class="col-md-2">Options:</th>
+                    <td class="editQuestionFS"><%=data[4].question_options%></td>
+                  </tr>
+                  </tbody>
+                </table>
+                <div class="justify-content-center" style="text-align-last: center;">
+                  <button id="btn-cancel5" onclick="disable(5)" type="button" disabled="true" class="btn cancel_btn">Cancel</button>
+                  <button id="btn-edit5"  onclick="enable(5)" type="button"   class="btn edit_btn">Edit</button>
+                  <button id="btn-submit5" onclick="update(5)" type="submit" class="btn update_btn" disabled="true" >Update</button>
+                </div>
+              </form>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="text-center"
+    style="font-size:16px; padding: 9px 0px; background-color: rgba(0, 0, 0, 0.7) !important;color: white;position: fixed; bottom: 0rem;width: 100%;">
+    Contributed by LM Tech Team | For Support: <a href="mailto:raj@labmoneta.co">email</a> us.
+  </div>
+  <%- include footer %>
+
+  <script>
+    function showQuestion(evt, questid) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(questid).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+
+    function disable(seq) {
+      document.getElementById("check"+seq).disabled = true;
+      document.getElementById("check"+seq).checked = false;
+      document.getElementById("title"+seq).disabled = true; 
+      document.getElementById("ques"+seq).disabled = true;
+      document.getElementById("btn-cancel"+seq).disabled = true;
+      document.getElementById("btn-submit"+seq).disabled = true;
+      document.getElementById("btn-edit"+seq).disabled = false;
+    }
+    function enable(seq) {
+      document.getElementById("check"+seq).disabled = false;
+      document.getElementById("check"+seq).checked = true;
+      document.getElementById("title"+seq).disabled = false; 
+      document.getElementById("ques"+seq).disabled = false;
+      document.getElementById("btn-cancel"+seq).disabled = false;
+      document.getElementById("btn-submit"+seq).disabled = false;
+      document.getElementById("btn-edit"+seq).disabled = true;
+    }
+  </script>
+</body>
+
+</html>

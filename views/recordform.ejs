@@ -1,0 +1,212 @@
+<HTML lang="EN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Global e-Health Declaration Form</title>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    
+    <meta name="keywords" content="Global eHealth, ehealth, Declaration Form, covid19, covid 19, covid-19, corona, coronavirus, wuhan virus, health declaration, corona details, Labmoneta eHealth, Global eHealth Declaration Form">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Form: Global eHealth Declaration Solution">
+    <meta property="og:url" content="http://www.labmoneta.co/eHealth/login">
+    <meta property="og:description" content="We are here to help you. To stop the spread of COVID-19 through sharing your details securely via Global eHealth Declaration form.">
+    <meta property="og:image" content="http://www.labmoneta.co/images/record2.png">
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="styles/styles.css" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="styles/default.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css"  crossorigin="anonymous" href="styles/intlTelInput.css">
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        window.alert = function () { };
+        var defaultCSS = document.getElementById('bootstrap-css');
+        function changeCSS(css) {
+            if (css) $('head > link').filter(':first').replaceWith('<link rel="stylesheet" href="' + css + '" type="text/css" />');
+            else $('head > link').filter(':first').replaceWith(defaultCSS);
+        }
+    </script>
+</head>
+
+<body onload="document.forms['recordform'].reset();">
+    <div class="container">
+        <div class="d-flex justify-content-center h-100">
+            <div class="card-form">
+                <div class="card-header text-center" style="display: inline;">
+                    <h4 class="links" style="text-transform: uppercase;"><%=data[0].company_name %></h4><br/>
+                    <h4>Global e-Health Declaration Form</h4>
+                </div>
+                <div class="card-body">
+                    <form id="recordform" name="recordform"  class="form-horizontal" role="form" method="post" action="/recordform">
+                        <% if (message.length > 0) { %>
+                            <div class="alert alert-success col-sm-12"><%=message%></div>
+                        <% } %>
+                        <div id="signupalert" style="display:none" class="alert alert-danger">
+                            <p>Error:</p>
+                            <span></span>
+                        </div>
+                        <input type="hidden" id="formId" name="formId" value="<%=request.session.formId %>" >
+                        <div class="input-group form-group">
+                            <input type="text" id="firstname" name="first_name" class="form-control" placeholder="Enter First Name (required)" required>
+                        </div>
+                        <div class="input-group form-group">
+                            <input type="text" id="lastname" name="last_name" class="form-control" placeholder="Enter Last Name (required)" required>
+                        </div>
+                        <div class="input-group form-group">
+                            <input type="hidden" name="countrycode" id="countrycode" value="" >
+                            <input type="text" id="usermobile" name="user_mobile" class="form-control" placeholder="+65123456789 (required)" autocomplete="off" aria-autocomplete="none" pattern="^(1[ \-\+]{0,3}|\+1[ -\+]{0,3}|\+1|\+)?((\(\+?1-[2-9][0-9]{1,2}\))|(\(\+?[2-8][0-9][0-9]\))|(\(\+?[1-9][0-9]\))|(\(\+?[17]\))|(\([2-9][2-9]\))|([ \-\.]{0,3}[0-9]{2,4}))?([ \-\.][0-9])?([ \-\.]{0,3}[0-9]{2,4}){2,3}$" required>                        
+                        </div>
+                        <input type="hidden" name="countrycode" id="countrycode" value="" >
+                        <div class="input-group form-group">
+                            <input type="email" id="emailid" name="email_id" class="form-control" placeholder="youremail@domain.com (required)" required>
+                        </div>
+                        <div class="input-group form-group">
+                            <input type="text" id="nircpassport" name="nirc_passport" class="form-control" placeholder="ID No. / Passport No. / FIN (required)" required>
+                        </div>
+                        <div class="input-group form-group">
+                            <div id="post-fix" class="threshold post-fix-d">
+                                <input type="number" step="0.10" id="bodytemp" name="body_temp" class="form-control" placeholder="37.50" min="20.50" max="180.99" pattern="(^-\d*\.?\d*[1-9]+\d*$)|(^-[1-9]+\d*\.\d*$)" maxlength="3" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" onkeypress="if(this.value>121) return false;" required>
+                            </div>
+                        </div>
+                        <div>
+                            <table class="table" style="background-color: aliceblue; border-color: transparent;border-width: 0.1rem;">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            Do you have flu-like symptoms (e.g. fever, cough etc.)?<br>
+                                            <div class="btn-group btn-group btn-group-toggle" data-toggle="buttons">
+                                                <label class="btn btn-warning active">
+                                                    <input type="radio" class="input-radio" name="flusymptoms" id="flu_symptoms_yes" value="yes" checked> YES
+                                                </label>
+                                                <label class="btn btn-warning">
+                                                    <input type="radio" class="input-radio" name="flusymptoms" id="flu_symptoms_no" value="no" > NO
+                                                </label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Have you returned from China in the Past 30 Days?<br>
+                                            <div class="btn-group btn-group btn-group-toggle" data-toggle="buttons">
+                                                <label class="btn btn-warning active">
+                                                    <input type="radio" class="input-radio" name="visitedchina" id="visited_china_yes" value="yes" checked> YES
+                                                </label>
+                                                <label class="btn btn-warning">
+                                                    <input type="radio" class="input-radio" name="visitedchina" id="visited_china_no" value="no" > NO
+                                                </label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Did you come in close contact with someone who has been in China in the Past 30 Days?<br>
+                                            <div class="btn-group btn-group btn-group-toggle" data-toggle="buttons">
+                                                <label class="btn btn-warning active">
+                                                    <input type="radio" class="input-radio" name="chineseconnected" id="chinese_connected_yes" value="yes" checked> YES
+                                                </label>
+                                                <label class="btn btn-warning">
+                                                    <input type="radio" class="input-radio" name="chineseconnected" id="chinese_connected_no" value="no" > NO
+                                                </label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Have you returned from the Middle East in the Past 30 Days?<br>
+                                            <div class="btn-group btn-group btn-group-toggle" data-toggle="buttons">
+                                                <label class="btn btn-warning active">
+                                                    <input type="radio" class="input-radio" name="visitedmiddleeast" id="visited_middle_east_yes" value="yes" checked> YES
+                                                </label>
+                                                <label class="btn btn-warning">
+                                                    <input type="radio" class="input-radio" name="visitedmiddleeast" id="visited_middle_east_no" value="no" > NO
+                                                </label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Did you come in close contact with someone who has been in Middle East in the Past 30 Days?<br>
+                                            <div class="btn-group btn-group btn-group-toggle" data-toggle="buttons">
+                                                <label class="btn btn-warning active">
+                                                    <input type="radio" class="input-radio" name="middleeastconnected" id="middle_east_connected_yes" value="yes" checked> YES
+                                                </label>
+                                                <label class="btn btn-warning">
+                                                    <input type="radio" class="input-radio" name="middleeastconnected" id="middle_east_connected_no" value="no" > NO
+                                                </label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="defaultUnchecked" name="i_agree" value="yes" required>
+                                                <label class="custom-control-label" for="defaultUnchecked">I hereby declare that the above statements are true, accruate and complete.</label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                </table>
+                        </div>
+                        <div class="card-footer">
+                            <div class="d-flex justify-content-center links">
+                                <button id="btn-signup" type="submit" class="btn btn-warning active float-right">Submit</button>
+                            </div>
+                            <div class="d-flex justify-content-center links">
+                                &nbsp;
+                            </div>
+                            <div class="d-flex justify-content-center links">
+                                &nbsp;
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- <div class="form-group text-center">
+                    <br/>
+                    <h6 style="color: white;">Powered by: LabMoneta Foundation Pte. Ltd. | For support: <a href="mailto:raj@labmoneta.co">email</a> us.</h6>
+                </div> -->
+            </div>
+        </div>
+    </div>
+    <div class="text-center" style="font-size:16px; padding: 9px 0px; background-color: rgba(0, 0, 0, 0.7) !important;color: white;position: fixed; bottom: 0rem;width: 100%; z-index: 99;">
+        Contributed by LM Tech Team | For Support: <a href="mailto:raj@labmoneta.co" style="color: #5ac5ed;">email</a> us.
+    </div>
+</body>
+<script src="js/intlTelInput.js"></script>
+<script>
+    var input = document.querySelector("#usermobile");
+    window.intlTelInput(input, {
+        allowDropdown: false,
+        autoHideDialCode: true,
+        autoPlaceholder: "off",
+        dropdownContainer: document.body,
+        // excludeCountries: ["us"],
+        formatOnDisplay: true,
+        geoIpLookup: function(callback) {
+          $.get("http://ipinfo.io", function() {}, "jsonp").always(function(resp) {
+            var countryCode = (resp && resp.country) ? resp.country : "";
+            alert(resp);
+            callback(countryCode);
+          });
+        },
+        hiddenInput: "full_number",
+        initialCountry: "sg",
+        localizedCountries: { 'de': 'Deutschland' },
+        nationalMode: false,
+        // onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
+        placeholderNumberType: "MOBILE",
+        preferredCountries: ['sg', 'gb', 'in', 'cn', 'jp'],
+        // separateDialCode: true,
+        utilsScript: "js/utils.js",
+    });
+</script>
+</html>
+    

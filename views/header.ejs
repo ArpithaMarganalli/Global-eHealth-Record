@@ -1,0 +1,46 @@
+<html lang="EN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Welcome - Global eHealth Declaration From</title>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+
+    <link rel='stylesheet' href='styles/default.min.css' />
+    <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" />
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script>
+      function doit(type, fn, dl) {
+          var elt = document.getElementById('data-table');
+          var wb = XLSX.utils.table_to_book(elt, {sheet:"Sheet JS"});
+          return dl ?
+              XLSX.write(wb, {bookType:type, bookSST:true, type: 'base64'}) :
+              XLSX.writeFile(wb, fn || ('eHealth Data by LabMoneta.' + (type || 'xlsx')));
+      }
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="noprint">
+        <ul>
+          <li style="float:left"><a href="/home/dashboard" title="Home"  class="active">Home</a></li>
+          <li style="margin-left: 2vmax;"><a href="/home/records">Download</a></li>
+          <li style="margin-left: 2vmax;"><a href="/home/question">Edit Questions</a></li>
+          <!-- <li class="dropdown">
+            <a class="dropdown-toggle" style="margin-left: 2vmax;" data-toggle="dropdown" href="#">Actions
+            <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="/home/records">Download</a></li>
+              <li><a href="/home/question">Edit Questions</a></li>
+            </ul>
+          </li> -->
+          <li style="float:right"><a href="/home/logout">Logout</a></li>
+        </ul>
+    </div>

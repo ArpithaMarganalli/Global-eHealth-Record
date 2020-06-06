@@ -1,0 +1,54 @@
+    <%- include header %>
+    <div class="jumbotron text-center spacediv">
+        <h3 class="panel-title"><%=user.company_name%></h3>
+        <h5><b>Welcome, <%=user.first_name%></b></h5>
+        <div class="links spacediv noprint">
+            <button id="btn-signup" type="submit" class="btn float-right login_btn" onclick="doit('xlsx');" style="color: white;">Export XLSX</button>
+        </div>
+        <div class="table-responsive spacediv">
+            <table class="table" id="data-table">
+                <tr>
+                    <th nowrap>Sr. No.</th>
+                    <th nowrap>First Name</th>
+                    <th nowrap>Last Name</th>
+                    <th nowrap>NIRC/PASSPORT</th>
+                    <th nowrap>Email Id</th>
+                    <th nowrap>Mobile Number</th>
+                    <th nowrap>Body Temperature</th>
+                    <th nowrap>Flu Symptoms</th>
+                    <th nowrap>Visited China</th>
+                    <th nowrap>Connected Chineese</th>
+                    <th nowrap>Visited Middle East</th>
+                    <th nowrap>Connected Middle East</th>
+                </tr>
+                <% for (i = 0; i < data.length; i++) { %>
+                <tr>
+                    <td nowrap><%= i+1 %></td>
+                    <td nowrap><%= data[i].firstname %></td>
+                    <td nowrap><%= data[i].last_name %></td>
+                    <td nowrap><%= data[i].nircpassport %></td>
+                    <td nowrap><%= data[i].emailid %></td>
+                    <td nowrap><%= data[i].mobileno %></td>
+                    <td nowrap><%= data[i].body_temp %></td>
+                    <% const answer = JSON.parse(data[0].answers) %>
+                    <td style="text-align: center;"><%= answer.flusymptoms %></td>
+                    <td style="text-align: center;"><%= answer.visitedchina %></td>
+                    <td style="text-align: center;"><%= answer.chineseconnected %></td>
+                    <td style="text-align: center;"><%= answer.visitedmiddleeast %></td>
+                    <td style="text-align: center;"><%= answer.middleeastconnected %></td>
+                </tr>
+                <% } %>
+                <tr>
+                    <td colspan="12" style="text-align: center;padding-top:2rem;">
+                        LabMoneta team wishes everyone's good health and vigilant.</h3>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        </div>
+    </div>
+    <div class="text-center" style="font-size:16px; padding: 9px 0px; background-color: rgba(0, 0, 0, 0.7) !important;color: white;position: fixed; bottom: 0rem;width: 100%;">
+        Contributed by LM Tech Team | For Support: <a href="mailto:raj@labmoneta.co">email</a> us.
+    </div>
+</body>
+</html>

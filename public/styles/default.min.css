@@ -1,0 +1,67 @@
+@import url(https://fonts.googleapis.com/css?family=Numans);body,html{background-image:url(/images/healthcare.png);background-size:auto;background-repeat:no-repeat;height:100%;font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-size: 1rem;font-weight: 400;line-height: 1.5;}.container{height:100%;align-content:center}.card{height:21 rem;margin-top:auto;margin-bottom:auto;width:400px;background-color:rgba(255,255,255,.8)!important}.card-form{height:auto;margin-top:auto;margin-bottom:auto;width:100%;background-color:rgba(255,255,255,.8)!important}::placeholder{color:#b8b8b8!important;opacity:1}:-ms-input-placeholder{color:#b8b8b8!important}::-ms-input-placeholder{color:#b8b8b8!important}.input-group-n{position:relative;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-ms-flex-align:stretch;align-items:stretch;max-width:32%;margin-bottom:1rem;margin-right:1rem}div#post-fix{display:inline-block;position:relative;width:fit-content}.post-fix,input[type=number]{width:10rem;text-align:right;padding-right:3rem}div#post-fix::after{position:absolute;top:4px;right:.5rem;transition:all 50ms ease-in-out}div.post-fix-d::after{top:1px!important;right:2.2rem!important}.bpm::after{content:"BPM";padding-top:.2rem}.lbs::after{content:"LBS";padding-top:.2rem}.percent::after{content:"%"}.threshold::after{content:"\0b0";font-size:1.5rem}.social_icon span{font-size:60px;margin-left:10px;color:#5ac5ed}.social_icon span:hover{color:#2f4f4f;cursor:pointer}.card-header{background-color:rgba(255,255,255,.9)!important}.card-header h3{color:#2f4f4f}.social_icon{position:absolute;right:20px;top:-45px}.input-group-prepend span{width:50px;background-color:#5ac5ed;color:#000;border:0!important}input:focus{outline:0!important;box-shadow:0 0!important}.remember{color:#2f4f4f}.remember input{width:20px;height:20px;margin-left:15px;margin-right:5px}.login_btn{color:#000;background-color:#5ac5ed;width:100px}.login_btn:hover{color:#000;background-color:#ffdead}.links{color:#2f4f4f}.links a{margin-left:4px}a{color:#5ac5ed}a:hover{color:#2f4f4f}.spacediv{padding:1rem;margin-bottom:1rem}ul{list-style-type:none;padding:1.5rem;overflow:hidden;background-color:rgba(255,255,255,.95);border-radius:1rem}table td{font-size:1.1rem!important}li{float:left}li a{display:block;color:#000;text-align:center;padding:1rem 2rem;text-decoration:none;border-radius:1rem;border:1px solid #abb}li a:hover{text-decoration:none;color:#2f4f4f;font-weight:600}li a:hover:not(.active){background-color:#abb;border-radius:1rem;color:#2f4f4f}.active{background-color:#abb;border-radius:0rem;color:#2f4f4f}#admin_fields_container{background-color:rgba(180,210,235,.4);padding:.5rem}.iti__flag{background-image:url(../images/flags.png)}@media (-webkit-min-device-pixel-ratio:2),(min-resolution:192dpi){.iti__flag{background-image:url(../images/flags@2x.png)}}@media print{.noprint{visibility:hidden;display:none;height:0!important;page-break-after:avoid}.doprint{page-break-after:avoid;padding:1.4rem!important;margin:1.4rem!important}#data-table{visibility:visible;page-break-inside:avoid;width:100%;height:auto!important;overflow:visible;transform:scale(.85);margin-left:-90px}td,th{font:normal normal 8pt arial sans-serif;padding:0;margin:0}}
+.form-control {
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 2px solid #5ac5ed;
+    line-height: 1.8rem;
+    padding: 25px;
+}
+/* Style the tab */
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+  }
+  
+  /* Style the buttons inside the tab */
+  .tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+  }
+  
+  /* Change background color of buttons on hover */
+  .tab button:hover {
+    background-color: #ddd;
+  }
+  
+  /* Create an active/current tablink class */
+  .tab button.active {
+    background-color: #ccc;
+  }
+  
+  /* Style the tab content */
+  .tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+  }
+
+  .editQuestionFS{
+    font-size: 1.6rem !important;
+  }
+  .edit_btn{
+    color: #000;
+    background-color: #5ac5ed;
+    width: 100px;
+  }
+  
+  .cancel_btn{
+    color: #000;
+    background-color: #ed5a5a;
+    width: 100px;
+  }
+  
+  .update_btn{
+    color: #000;
+    background-color: #5aed92;
+    width: 100px;
+  }
+ 

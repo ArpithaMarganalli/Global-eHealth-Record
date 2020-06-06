@@ -1,0 +1,216 @@
+<!-- <!DOCTYPE html> -->
+<HTML lang="EN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Company SignUp</title>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    
+    <meta name="keywords" content="Global eHealth, ehealth, Declaration Form, covid19, covid 19, covid-19, corona, coronavirus, wuhan virus, health declaration, corona details, Labmoneta eHealth, Global eHealth Declaration Form">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="SignUp: Global eHealth Declaration Solution">
+    <meta property="og:url" content="http://www.labmoneta.co/eHealth/login">
+    <meta property="og:description" content="We are here to help you. To stop the spread of COVID-19 through sharing your details securely via Global eHealth Declaration form.">
+    <meta property="og:image" content="http://www.labmoneta.co/images/record2.png">
+    
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" type="text/css"  crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO">
+    <link rel="stylesheet" type="text/css"  crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU">
+    <link rel="stylesheet" type="text/css"  crossorigin="anonymous" href="styles/default.min.css">
+    <link rel="stylesheet" type="text/css"  crossorigin="anonymous" href="styles/intlTelInput.css">
+
+    <script rel="javascript" type="text/javascript"  crossorigin="anonymous" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script rel="javascript" type="text/javascript"  crossorigin="anonymous" src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+
+
+    <script type="text/javascript">
+        window.alert = function() {};
+        
+        var adminUser = 0, defaultCSS = document.getElementById('bootstrap-css');
+        
+        function changeCSS(css) {
+            if (css) $('head > link').filter(':first').replaceWith('<link rel="stylesheet" href="' + css + '" type="text/css" />');
+            else $('head > link').filter(':first').replaceWith(defaultCSS);
+        }
+        
+        function admin_fields() {
+            adminUser++;
+            var objTo = document.getElementById('admin_fields'),
+                divtest = document.createElement("div"),
+                rdiv = 'removeclass' + adminUser;
+            divtest.setAttribute("class", "form-group removeclass" + adminUser);
+            divtest.innerHTML = '<div id="admin_fields" class="text-center"> <div class="input-group-btn" style="padding: 1rem 1rem 0.5rem 1rem;"><b>Remove this admin user &nbsp;</b> <button class="btn btn-danger" type="button" onclick="remove_admin_fields(' + adminUser + ');"> <span aria-hidden="true"><i class="fas fa-minus"></i></span> </button></div><div class="input-group form-group"> <input type="text" id="a_first_name" name="a_first_name" class="form-control" value="" placeholder="Enter First Name (required)" required> </div><div class="input-group form-group"> <input type="text" id="a_last_name" name="a_last_name" class="form-control" value="" placeholder="Enter Last Name (required)" required> </div><div class="input-group form-group"> <input type="email" class="form-control" id="a_email_id" name="a_email_id" value="" placeholder="emailid@domain.com (required)" required> </div><div class="input-group form-group"> <input type="tel" class="form-control" id="a_mobile_number" name="a_mobile_number" value="" placeholder="+65123456789 (required)" required> </div><div class="input-group form-group"> <input type="text" class="form-control" id="a_designation" name="a_designation" value="" placeholder="Enter Designation (required)" required> </div></div><div class="clear"></div>';
+            objTo.appendChild(divtest);
+
+            var inputs = document.getElementsByName('a_mobile_number');
+            var inputObj = inputs[inputs.length - 1];
+            window.intlTelInput(inputObj, {
+                allowDropdown: false,
+                autoHideDialCode: true,
+                autoPlaceholder: "off",
+                dropdownContainer: document.body,
+                // excludeCountries: ["us"],
+                formatOnDisplay: true,
+                geoIpLookup: function(callback) {
+                $.get("http://ipinfo.io", function() {}, "jsonp").always(function(resp) {
+                    var countryCode = (resp && resp.country) ? resp.country : "";
+                    alert(resp);
+                    callback(countryCode);
+                });
+                },
+                hiddenInput: "full_number",
+                initialCountry: "sg",
+                localizedCountries: { 'de': 'Deutschland' },
+                nationalMode: false,
+                // onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
+                placeholderNumberType: "MOBILE",
+                preferredCountries: ['sg', 'gb', 'in', 'cn', 'jp'],
+                // separateDialCode: true,
+                utilsScript: "js/utils.js",
+            });
+        }
+
+        function remove_admin_fields(rid) {
+            $('.removeclass' + rid).remove();
+        }
+
+    </script>
+    
+</head>
+
+<body>
+    <div class="container">
+        <div class="d-flex justify-content-center h-100">
+            <div class="card-form">
+                <div class="card-header">
+                    <h5>Entity Registration</h5>
+                </div>
+                <div class="card-body">
+                    <form class="form-horizontal" role="form" method="post" action="/signup" autocomplete="off">
+                        <% if (message.length > 0) { %>
+                        <div class="alert alert-success col-sm-12"><%=message %></div>
+                        <% } %>
+                        <div id="signupalert" style="display:none" class="alert">
+                            <p>Error:</p>
+                            <span></span>
+                        </div>
+                        <div id="signupalert" class="alert alert-danger">
+                            <p>For GDPR compliant, database should be access by authorized personnel only. If registrant is not authorized to access the database collected, please add entity's authorized personnel details below (optional). 
+                            <p>If not, default registrant is authorized to access and view the database collected.</p>
+                            <p>Please note the collected data will stored for 7 working day only.</p>
+                        </div>
+                        <input type="hidden" id="user_type" name="user_type" value="Signed up" >
+                        <div class="input-group form-group">
+                            <input type="text" id="firstname" name="first_name" class="form-control" placeholder="Enter First Name (required)" required>
+                        </div>
+                        <div class="input-group form-group">
+                            <input type="text" id="lastname" name="last_name" class="form-control" placeholder="Enter Last Name (required)" required>
+                        </div>
+                        <div class="input-group form-group">
+                            <input type="hidden" name="countrycode" id="countrycode" value="" >
+                            <input type="text" id="usermobile" name="user_mobile" class="form-control" placeholder="+65123456789 (required)" autocomplete="off" aria-autocomplete="none" pattern="^(1[ \-\+]{0,3}|\+1[ -\+]{0,3}|\+1|\+)?((\(\+?1-[2-9][0-9]{1,2}\))|(\(\+?[2-8][0-9][0-9]\))|(\(\+?[1-9][0-9]\))|(\(\+?[17]\))|(\([2-9][2-9]\))|([ \-\.]{0,3}[0-9]{2,4}))?([ \-\.][0-9])?([ \-\.]{0,3}[0-9]{2,4}){2,3}$" required>                        
+                        </div>
+                        <div class="input-group form-group">
+                            <input type="email" id="loginemail" name="login_email" class="form-control" placeholder="youremail@domain.com (required)" required>
+                        </div>
+                        <div class="input-group form-group">
+                            <input type="password" id="password" name="password" class="form-control" placeholder="password (required)" required>
+                        </div>
+                        <div class="input-group form-group">
+                            <input type="text" id="companyname" name="company_name" class="form-control" placeholder="Your Company Nname (required)" required>
+                        </div>
+                        <div class="input-group form-group">
+                            <input type="text" id="registrationid" name="registration_id" class="form-control" placeholder="Company Registration ID (required)" required>
+                        </div>
+                        <div class="input-group form-group">
+                            <input type="text" id="designation" name="designation" class="form-control" placeholder="Your Designation (required)" required>
+                        </div>
+                        <hr/>
+                        <div id="admin_fields_container">
+                            <div id="admin_fields" class="text-center"></div>
+                            <div class="input-group-btn text-center">
+                                <b>Do you want to add an Authorized Personal?</b><br/>&nbsp;<br/>
+                                <button class="btn btn-success" data-toggle="modal" data-target="#adminModel" type="button" onclick="admin_fields();" title="Add anotehr user who should receive records via email.">
+                                    <span aria-hidden="true"><i class="fas fa-plus"></i></span> 
+                                </button>
+                            </div>
+                        </div>
+                        <div class="form-group d-flex justify-content-center spacediv">
+                                <button id="btn-signup" type="submit" class="btn float-right login_btn">
+                                    <i class="icon-hand-right"></i>Sign Up
+                                </button>
+                        </div>
+                    </form>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="adminModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Add Authorized Personal</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body text-center">
+                            Add admin user to share daily submitted declaration from report via email. 
+                            <br/><br/>The admin user also can export details manually from the dashboard in excel format to keep your company visitors information.
+                            <br/><br/><br/><sub><b>Note:</b> We do not store records beyond 30 days.</sub>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="d-flex justify-content-center links">
+                        <!-- Do you have an account? <a href="/login" >Sign In</a> -->&nbsp;
+                    </div>
+                    <div class="text-center links">
+                        <h6>If you are already a registered user, please use <a href="/login" >Sign In</a></h6>
+                    </div>
+                    <div class="d-flex justify-content-center links">
+                        &nbsp;
+                    </div>
+                    <div class="d-flex justify-content-center links">
+                        &nbsp;
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-center" style="font-size:16px; padding: 9px 0px; background-color: rgba(0, 0, 0, 0.7) !important;color: white;position: fixed; bottom: 0rem;width: 100%;">
+        Contributed by LM Tech Team | For Support: <a href="mailto:raj@labmoneta.co">email</a> us.
+    </div>
+</body>
+<script src="js/intlTelInput.js"></script>
+<script>
+    var input = document.querySelector("#usermobile");
+    window.intlTelInput(input, {
+        allowDropdown: false,
+        autoHideDialCode: true,
+        autoPlaceholder: "off",
+        dropdownContainer: document.body,
+        // excludeCountries: ["us"],
+        formatOnDisplay: true,
+        geoIpLookup: function(callback) {
+          $.get("http://ipinfo.io", function() {}, "jsonp").always(function(resp) {
+            var countryCode = (resp && resp.country) ? resp.country : "";
+            alert(resp);
+            callback(countryCode);
+          });
+        },
+        hiddenInput: "full_number",
+        initialCountry: "sg",
+        localizedCountries: { 'de': 'Deutschland' },
+        nationalMode: false,
+        // onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
+        placeholderNumberType: "MOBILE",
+        preferredCountries: ['sg', 'gb', 'in', 'cn', 'jp'],
+        // separateDialCode: true,
+        utilsScript: "js/utils.js",
+    });
+</script>
+</html>

@@ -1,0 +1,19 @@
+<%- include header %>
+<div class="jumbotron text-center doprint" style="line-height:1.5rem;">
+  <h3 style="text-transform: uppercase;">Welcome to <%=user.company_name%></h3><br/>
+  <h2><b>VISITOR REGISTRATION</b></h2><br/>
+  <p style="line-height:3rem;">In view of the Novel Coronavirus outbreak, Please complete the online Visitor Registration Form as a precautionary measure. Thank you.</p>
+  <p style="line-height:3rem;">1. Please scan the QR code to complete and submit the form.</p>
+  <p style="line-height:3rem;">You can also use the link <a href="<%=user.tinyLink%>"><%=user.tinyLink%></a> or ask the Security Officer for a hard copy form.</p>
+  <p style="line-height:3rem;"><img id='barcode' src="https://api.qrserver.com/v1/create-qr-code/?data=<%=user.qrString%>&amp;size=290x290" alt="" title="Health Form" width="150" height="150" /></p>
+  <p style="line-height:3rem;">2. Do show the 'Submitted' Page to the Security Officer as proof of completion at the screening point.</p>
+  <br/><br/>
+  <!-- <h4 class="noprint">Click <a href='/home/records'>here</a> to view submitted data.</h4> -->
+  <!-- <h5>Powered by: LabMoneta Foundation Pte. Ltd. | For support: <a href="mailto:raj@labmoneta.co">email</a> us.</h5> -->
+</div>
+</div>
+<div class="text-center" style="font-size:16px; padding: 9px 0px; background-color: rgba(0, 0, 0, 0.7) !important;color: white;position: fixed; bottom: 0rem;width: 100%;">
+  Contributed by LM Tech Team | For Support: <a href="mailto:raj@labmoneta.co" style="color: #5ac5ed;">email</a> us.
+</div>
+
+<%- include footer %>
